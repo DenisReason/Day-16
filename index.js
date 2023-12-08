@@ -14,6 +14,10 @@ app.get('/', (req, res, next) => {
     res.send("<h1>server is running<h1/>");
 });
 
+
+io.on('connection', (socket)=>{
+    console.log("A user Connect!!");
+})
 server.listen(PORT, () => {
     console.log("Server is listening on port ",PORT);
 });
