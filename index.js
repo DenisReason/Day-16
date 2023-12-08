@@ -25,6 +25,7 @@ io.on("connection", async (socket) => {
     });
 
     socket.emit("message", { text: "Hello, target client" });
+    socket.disconnect()
 });
 
 server.listen(3000, () => {
