@@ -1,0 +1,1 @@
+// Cấu hình cors trực tiếp trong server thuộc socket.io
