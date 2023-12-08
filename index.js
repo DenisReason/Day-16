@@ -3,6 +3,11 @@ import express from "express";
 import { Server } from "socket.io";
 import cors from 'cors';
 
+
+const data = [
+    {Message:"Wellcome"}
+]
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server,{
@@ -22,10 +27,12 @@ app.get('/', (req, res, next) => {
 
 io.on('connection', (socket)=>{
     console.log("A user Connect!!");
-    socket.on("message",(data)=>{
+    socket.emit('message',data)
+    socket.on("message",(dataclient)=>{
+        data.push(dataclient)
+        console.log(data);
         socket.emit('message',data)
     })
-    socket.emit('message',"Hello")
 })
 server.listen(PORT, () => {
     console.log("Server is listening on port ",PORT);
