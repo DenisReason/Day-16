@@ -22,6 +22,9 @@ app.get('/', (req, res, next) => {
 
 io.on('connection', (socket)=>{
     console.log("A user Connect!!");
+    socket.on("message",(data)=>{
+        socket.emit('message',data)
+    })
     socket.emit('message',"Hello")
 })
 server.listen(PORT, () => {
