@@ -7,7 +7,8 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server,cors({
     origin:"http://localhost:19006",
-    methods:["GET,PUSH"]
+    methods:["GET,PUSH"],
+    credentials:true
 }));
 
 const PORT = process.env.PORT||3000
