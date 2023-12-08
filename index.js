@@ -10,9 +10,7 @@ const io = new Server(server);
 // Sử dụng middleware CORS  
 app.use(cors())
 
-app.get('/', (req, res, next) => {
-    res.send("Server is running");
-});
+
 
 // Cấu hình Socket.IO để cho phép CORS
 io.on("connection", async (socket) => {
@@ -28,6 +26,10 @@ io.on("connection", async (socket) => {
     socket.disconnect()
 });
 
+
+app.get('/', (req, res, next) => {
+    res.send("Server is running");
+});
 server.listen(3000, () => {
     console.log("Server is listening on port 3000");
 });
