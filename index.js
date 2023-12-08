@@ -31,7 +31,7 @@ io.on('connection', (socket)=>{
     socket.on("message",(dataclient)=>{
         data.push(dataclient)
         console.log("Dataclient:",data);
-        socket.emit('message',data)
+        io.emit('message',data)
     })
 })
 server.listen(PORT, () => {
