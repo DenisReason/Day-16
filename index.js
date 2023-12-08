@@ -5,11 +5,12 @@ import cors from 'cors';
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server,cors({
+const io = new Server(server,{
+    cors:{
     origin:"http://localhost:19006",
     methods:["GET,PUSH"],
     credentials:true
-}));
+}});
 
 const PORT = process.env.PORT||3000
 app.use(cors())
