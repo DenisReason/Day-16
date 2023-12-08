@@ -7,12 +7,13 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-// Sử dụng middleware CORS  
+const PORT = process.env.PORT||3000
 app.use(cors())
 
 app.get('/', (req, res, next) => {
     res.send("server is running");
 });
-server.listen(3000, () => {
-    console.log("Server is listening on port 3000");
+
+server.listen(PORT, () => {
+    console.log("Server is listening on port ",PORT);
 });
