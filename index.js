@@ -30,7 +30,7 @@ io.on('connection', (socket)=>{
     socket.emit('message',data)
     socket.on("message",(dataclient)=>{
         data.push(dataclient)
-        console.log(data);
+        console.log("Dataclient:",data);
         socket.emit('message',data)
     })
 })
